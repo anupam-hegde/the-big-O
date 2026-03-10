@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THE BIG O — Competitive Coding Club | Solve · Compete · Succeed</title>
+  <meta name="description"
+    content="THE BIG O is a competitive coding club dedicated to solving complex problems, competing in coding contests, and building a community of passionate programmers." />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Three.js for 3D WebGL effects -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Three.js global background canvas -->
+  <canvas id="heroCanvas"></canvas>
+
+  <!-- 3D Cursor glow that follows mouse -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="cursor-glow-ring" id="cursorGlowRing"></div>
+
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+       ═══════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <img src="logo.png" alt="THE BIG O Logo" />
+        <span>THE BIG <span class="logo-accent">O</span></span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#members">Members</a>
+        <a href="#events">Events</a>
+        <a href="#connect">Connect</a>
+        <a href="#connect" class="nav-cta">Join Us</a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════
+       HERO SECTION — Three.js 3D Background
+       ═══════════════════════════════════════ -->
+  <section class="hero" id="hero">
+
+    <!-- Floating 3D code cube -->
+    <div class="code-cube" id="codeCube">
+      <div class="cube-face cube-front"><span>&lt;/&gt;</span></div>
+      <div class="cube-face cube-back"><span>{ }</span></div>
+      <div class="cube-face cube-right"><span>O(n)</span></div>
+      <div class="cube-face cube-left"><span>=&gt;</span></div>
+      <div class="cube-face cube-top"><span>fn()</span></div>
+      <div class="cube-face cube-bottom"><span>[ ]</span></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Competitive Coding Club
+      </div>
+
+      <img src="logo.png" alt="THE BIG O Logo" class="hero-logo" />
+
+      <h1 class="glitch-text" data-text="THE BIG O">THE BIG O</h1>
+      <div class="hero-tagline">
+        <span class="tagline-word" style="--i:0">Solve</span>
+        <span class="tagline-dot">&middot;</span>
+        <span class="tagline-word" style="--i:1">Compete</span>
+        <span class="tagline-dot">&middot;</span>
+        <span class="tagline-word" style="--i:2">Succeed</span>
+      </div>
+
+      <p>Elevate your coding skills through competitive programming, algorithmic challenges, and a community of
+        passionate problem solvers.</p>
+
+      <div class="hero-buttons">
+        <a href="#members" class="btn-primary btn-3d">
+          <i data-lucide="users"></i>
+          <span>Meet the Team</span>
+          <div class="btn-shine"></div>
+        </a>
+        <a href="#connect" class="btn-secondary btn-3d">
+          <i data-lucide="link"></i>
+          <span>Connect With Us</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       ABOUT SECTION
+       ═══════════════════════════════════════ -->
+  <section class="about" id="about">
+    <div class="section-bg-shape shape-1"></div>
+    <div class="section-bg-shape shape-2"></div>
+    <div class="container">
+      <div class="section-title reveal">
+        What is <span>THE BIG O</span>?
+        <div class="title-3d-shadow">What is THE BIG O?</div>
+      </div>
+      <div class="section-subtitle reveal">More than a club — a launchpad for competitive programmers.</div>
+
+      <div class="about-grid">
+        <div class="about-text reveal-left">
+          <h3>Our Mission</h3>
+          <p>
+            THE BIG O is a competitive coding club where passionate programmers come together to sharpen their skills,
+            tackle algorithmic challenges, and compete in national and international coding contests. We believe that
+            the best way to grow as a developer is through consistent practice, peer learning, and healthy competition.
+          </p>
+          <p>
+            Whether you're just starting your coding journey or you're a seasoned competitive programmer, THE BIG O
+            welcomes you with open arms. Our weekly sessions, workshops, and contests are designed to push your limits
+            and help you achieve your full potential.
+          </p>
+          <div class="about-highlights">
+            <span class="highlight-tag">🏆 Contests</span>
+            <span class="highlight-tag">📚 Workshops</span>
+            <span class="highlight-tag">🤝 Peer Learning</span>
+            <span class="highlight-tag">💡 Problem Solving</span>
+            <span class="highlight-tag">🚀 DSA Mastery</span>
+          </div>
+        </div>
+
+        <div class="bigo-grid reveal-right">
+          <div class="bigo-card tilt-card">
+            <div class="card-3d-layer"></div>
+            <div class="bigo-notation">O(1)</div>
+            <div class="bigo-tagline">Instant Community</div>
+            <div class="bigo-desc">Join once, belong forever. Zero lookup time.</div>
+          </div>
+          <div class="bigo-card tilt-card">
+            <div class="card-3d-layer"></div>
+            <div class="bigo-notation">O(log n)</div>
+            <div class="bigo-tagline">Divide & Conquer</div>
+            <div class="bigo-desc">Break problems in half. Solve smarter, not harder.</div>
+          </div>
+          <div class="bigo-card tilt-card">
+            <div class="card-3d-layer"></div>
+            <div class="bigo-notation">O(n)</div>
+            <div class="bigo-tagline">Grow Together</div>
+            <div class="bigo-desc">Every member adds value. Linear growth, limitless potential.</div>
+          </div>
+          <div class="bigo-card tilt-card">
+            <div class="card-3d-layer"></div>
+            <div class="bigo-notation">O(n!)</div>
+            <div class="bigo-tagline">Endless Possibilities</div>
+            <div class="bigo-desc">Infinite paths to explore. Your coding journey starts here.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       MEMBERS SECTION — 3D Holographic Cards
+       ═══════════════════════════════════════ -->
+  <section class="members" id="members">
+    <div class="section-bg-shape shape-3"></div>
+    <div class="container">
+      <div class="section-title reveal">
+        Our <span>Team</span>
+        <div class="title-3d-shadow">Our Team</div>
+      </div>
+      <div class="section-subtitle reveal">The founding minds behind THE BIG O</div>
+
+      <!-- Faculty Coordinators -->
+      <div class="team-label reveal"><span class="label-icon">🎓</span> Faculty Coordinators <span
+          class="label-line"></span></div>
+      <div class="members-grid faculty-grid">
+
+        <div class="holo-card faculty-card tilt-card reveal">
+          <div class="card-3d-layer"></div>
+          <div class="holo-shimmer"></div>
+          <div class="card-inner-bg"></div>
+          <div class="card-content">
+            <div class="avatar-wrapper">
+              <div class="avatar-orbit"></div>
+              <div class="avatar-glow"></div>
+              <div class="member-avatar faculty-avatar"><span>JK</span></div>
+            </div>
+            <div class="member-name">Prof. Jyoti Kumari</div>
+            <div class="member-role-badge faculty-badge">🎓 Faculty Coordinator</div>
+          </div>
+        </div>
+
+        <div class="holo-card faculty-card tilt-card reveal">
+          <div class="card-3d-layer"></div>
+          <div class="holo-shimmer"></div>
+          <div class="card-inner-bg"></div>
+          <div class="card-content">
+            <div class="avatar-wrapper">
+              <div class="avatar-orbit"></div>
+              <div class="avatar-glow"></div>
+              <div class="member-avatar faculty-avatar"><span>PK</span></div>
+            </div>
+            <div class="member-name">Dr. Pushpalata K.N.</div>
+            <div class="member-role-badge faculty-badge">🎓 Faculty Coordinator</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Core Team -->
+      <div class="team-label reveal" style="margin-top: 48px;"><span class="label-icon">👥</span> Core Team <span
+          class="label-line"></span></div>
+      <div class="members-grid core-grid">
+
+        <!-- President -->
+        <div class="holo-card tilt-card reveal">
+          <div class="card-3d-layer"></div>
+          <div class="holo-shimmer"></div>
+          <div class="card-inner-bg"></div>
+          <div class="card-neon-line"></div>
+          <div class="card-content">
+            <div class="avatar-wrapper">
+              <div class="avatar-orbit"></div>
+              <div class="avatar-glow"></div>
+              <div class="member-avatar"><span>AB</span></div>
+              <div class="status-dot"></div>
+            </div>
+            <div class="member-name">Ashish G Bhargav</div>
+            <div class="member-role-badge role-president">⚡ President</div>
+            <div class="member-socials">
+              <a href="https://linkedin.com/" target="_blank" class="social-btn linkedin" aria-label="LinkedIn"><i
+                  data-lucide="linkedin"></i></a>
+              <a href="https://instagram.com/" target="_blank" class="social-btn instagram" aria-label="Instagram"><i
+                  data-lucide="instagram"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vice President -->
+        <div class="holo-card tilt-card reveal">
+          <div class="card-3d-layer"></div>
+          <div class="holo-shimmer"></div>
+          <div class="card-inner-bg"></div>
+          <div class="card-neon-line"></div>
+          <div class="card-content">
+            <div class="avatar-wrapper">
+              <div class="avatar-orbit"></div>
+              <div class="avatar-glow"></div>
+              <div class="member-avatar"><span>LM</span></div>
+              <div class="status-dot"></div>
+            </div>
+            <div class="member-name">Likhith M.</div>
+            <div class="member-role-badge role-vp">🚀 Vice President</div>
+            <div class="member-socials">
+              <a href="https://linkedin.com/" target="_blank" class="social-btn linkedin" aria-label="LinkedIn"><i
+                  data-lucide="linkedin"></i></a>
+              <a href="https://instagram.com/" target="_blank" class="social-btn instagram" aria-label="Instagram"><i
+                  data-lucide="instagram"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secretary -->
+        <div class="holo-card tilt-card reveal">
+          <div class="card-3d-layer"></div>
+          <div class="holo-shimmer"></div>
+          <div class="card-inner-bg"></div>
+          <div class="card-neon-line"></div>
+          <div class="card-content">
+            <div class="avatar-wrapper">
+              <div class="avatar-orbit"></div>
+              <div class="avatar-glow"></div>
+              <div class="member-avatar"><span>GV</span></div>
+              <div class="status-dot"></div>
+            </div>
+            <div class="member-name">Gangadhar V.</div>
+            <div class="member-role-badge role-sec">📋 Secretary</div>
+            <div class="member-socials">
+              <a href="https://linkedin.com/" target="_blank" class="social-btn linkedin" aria-label="LinkedIn"><i
+                  data-lucide="linkedin"></i></a>
+              <a href="https://instagram.com/" target="_blank" class="social-btn instagram" aria-label="Instagram"><i
+                  data-lucide="instagram"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech Lead — Anupam -->
+        <div class="holo-card tilt-card reveal">
+          <div class="card-3d-layer"></div>
+          <div class="holo-shimmer"></div>
+          <div class="card-inner-bg"></div>
+          <div class="card-neon-line"></div>
+          <div class="card-content">
+            <div class="avatar-wrapper">
+              <div class="avatar-orbit"></div>
+              <div class="avatar-glow"></div>
+              <div class="member-avatar"><span>AH</span></div>
+              <div class="status-dot"></div>
+            </div>
+            <div class="member-name">Anupam M Hegde</div>
+            <div class="member-role-badge role-tech">🧠 Technical Lead</div>
+            <div class="member-socials">
+              <a href="https://linkedin.com/" target="_blank" class="social-btn linkedin" aria-label="LinkedIn"><i
+                  data-lucide="linkedin"></i></a>
+              <a href="https://instagram.com/" target="_blank" class="social-btn instagram" aria-label="Instagram"><i
+                  data-lucide="instagram"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tech Lead — Bhuvan -->
+        <div class="holo-card tilt-card reveal">
+          <div class="card-3d-layer"></div>
+          <div class="holo-shimmer"></div>
+          <div class="card-inner-bg"></div>
+          <div class="card-neon-line"></div>
+          <div class="card-content">
+            <div class="avatar-wrapper">
+              <div class="avatar-orbit"></div>
+              <div class="avatar-glow"></div>
+              <div class="member-avatar"><span>BT</span></div>
+              <div class="status-dot"></div>
+            </div>
+            <div class="member-name">Bhuvan T</div>
+            <div class="member-role-badge role-tech">🧠 Technical Lead</div>
+            <div class="member-socials">
+              <a href="https://linkedin.com/" target="_blank" class="social-btn linkedin" aria-label="LinkedIn"><i
+                  data-lucide="linkedin"></i></a>
+              <a href="https://instagram.com/" target="_blank" class="social-btn instagram" aria-label="Instagram"><i
+                  data-lucide="instagram"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Problem Setter -->
+        <div class="holo-card tilt-card reveal">
+          <div class="card-3d-layer"></div>
+          <div class="holo-shimmer"></div>
+          <div class="card-inner-bg"></div>
+          <div class="card-neon-line"></div>
+          <div class="card-content">
+            <div class="avatar-wrapper">
+              <div class="avatar-orbit"></div>
+              <div class="avatar-glow"></div>
+              <div class="member-avatar"><span>AY</span></div>
+              <div class="status-dot"></div>
+            </div>
+            <div class="member-name">Ajay Kumar Y.R.</div>
+            <div class="member-role-badge role-ps">🧩 Problem Setter</div>
+            <div class="member-socials">
+              <a href="https://linkedin.com/" target="_blank" class="social-btn linkedin" aria-label="LinkedIn"><i
+                  data-lucide="linkedin"></i></a>
+              <a href="https://instagram.com/" target="_blank" class="social-btn instagram" aria-label="Instagram"><i
+                  data-lucide="instagram"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PR — Harshith -->
+        <div class="holo-card tilt-card reveal">
+          <div class="card-3d-layer"></div>
+          <div class="holo-shimmer"></div>
+          <div class="card-inner-bg"></div>
+          <div class="card-neon-line"></div>
+          <div class="card-content">
+            <div class="avatar-wrapper">
+              <div class="avatar-orbit"></div>
+              <div class="avatar-glow"></div>
+              <div class="member-avatar"><span>HK</span></div>
+              <div class="status-dot"></div>
+            </div>
+            <div class="member-name">Harshith Reddy K.M.</div>
+            <div class="member-role-badge role-pr">📢 PR</div>
+            <div class="member-socials">
+              <a href="https://linkedin.com/" target="_blank" class="social-btn linkedin" aria-label="LinkedIn"><i
+                  data-lucide="linkedin"></i></a>
+              <a href="https://instagram.com/" target="_blank" class="social-btn instagram" aria-label="Instagram"><i
+                  data-lucide="instagram"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PR — Mohit -->
+        <div class="holo-card tilt-card reveal">
+          <div class="card-3d-layer"></div>
+          <div class="holo-shimmer"></div>
+          <div class="card-inner-bg"></div>
+          <div class="card-neon-line"></div>
+          <div class="card-content">
+            <div class="avatar-wrapper">
+              <div class="avatar-orbit"></div>
+              <div class="avatar-glow"></div>
+              <div class="member-avatar"><span>MS</span></div>
+              <div class="status-dot"></div>
+            </div>
+            <div class="member-name">Mohit Naik S.</div>
+            <div class="member-role-badge role-pr">📢 PR</div>
+            <div class="member-socials">
+              <a href="https://linkedin.com/" target="_blank" class="social-btn linkedin" aria-label="LinkedIn"><i
+                  data-lucide="linkedin"></i></a>
+              <a href="https://instagram.com/" target="_blank" class="social-btn instagram" aria-label="Instagram"><i
+                  data-lucide="instagram"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event Coord — Bhavana -->
+        <div class="holo-card tilt-card reveal">
+          <div class="card-3d-layer"></div>
+          <div class="holo-shimmer"></div>
+          <div class="card-inner-bg"></div>
+          <div class="card-neon-line"></div>
+          <div class="card-content">
+            <div class="avatar-wrapper">
+              <div class="avatar-orbit"></div>
+              <div class="avatar-glow"></div>
+              <div class="member-avatar"><span>BH</span></div>
+              <div class="status-dot"></div>
+            </div>
+            <div class="member-name">Bhavana H.M.</div>
+            <div class="member-role-badge role-event">🎯 Event Coordinator</div>
+            <div class="member-socials">
+              <a href="https://linkedin.com/" target="_blank" class="social-btn linkedin" aria-label="LinkedIn"><i
+                  data-lucide="linkedin"></i></a>
+              <a href="https://instagram.com/" target="_blank" class="social-btn instagram" aria-label="Instagram"><i
+                  data-lucide="instagram"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event Coord — Deepthi -->
+        <div class="holo-card tilt-card reveal">
+          <div class="card-3d-layer"></div>
+          <div class="holo-shimmer"></div>
+          <div class="card-inner-bg"></div>
+          <div class="card-neon-line"></div>
+          <div class="card-content">
+            <div class="avatar-wrapper">
+              <div class="avatar-orbit"></div>
+              <div class="avatar-glow"></div>
+              <div class="member-avatar"><span>DB</span></div>
+              <div class="status-dot"></div>
+            </div>
+            <div class="member-name">Deepthi B.S.</div>
+            <div class="member-role-badge role-event">🎯 Event Coordinator</div>
+            <div class="member-socials">
+              <a href="https://linkedin.com/" target="_blank" class="social-btn linkedin" aria-label="LinkedIn"><i
+                  data-lucide="linkedin"></i></a>
+              <a href="https://instagram.com/" target="_blank" class="social-btn instagram" aria-label="Instagram"><i
+                  data-lucide="instagram"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       EVENTS SECTION
+       ═══════════════════════════════════════ -->
+  <section class="events" id="events">
+    <div class="section-bg-shape shape-4"></div>
+    <div class="container">
+      <div class="section-title reveal">
+        Club <span>Events</span>
+        <div class="title-3d-shadow">Club Events</div>
+      </div>
+      <div class="section-subtitle reveal">Contests, workshops, and milestones that defined our journey</div>
+
+      <div class="timeline">
+
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card">
+            <div class="card-3d-layer"></div>
+            <div class="timeline-date">March 2026</div>
+            <h4>Code Sprint 3.0</h4>
+            <p>Our flagship competitive programming contest with 200+ participants from across colleges.</p>
+            <span class="timeline-tag">Upcoming</span>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card">
+            <div class="card-3d-layer"></div>
+            <div class="timeline-date">February 2026</div>
+            <h4>DSA Bootcamp</h4>
+            <p>Intensive 2-week bootcamp covering arrays, trees, graphs, DP, and advanced algorithms.</p>
+            <span class="timeline-tag">Workshop</span>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card">
+            <div class="card-3d-layer"></div>
+            <div class="timeline-date">January 2026</div>
+            <h4>Inter-College Hackathon</h4>
+            <p>24-hour coding marathon where teams built innovative solutions to real-world problems.</p>
+            <span class="timeline-tag">Hackathon</span>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-right">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card">
+            <div class="card-3d-layer"></div>
+            <div class="timeline-date">December 2025</div>
+            <h4>Year-End Code Clash</h4>
+            <p>Competitive coding showdown to close the year. Top performers received certificates and prizes.</p>
+            <span class="timeline-tag">Contest</span>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal-left">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card tilt-card">
+            <div class="card-3d-layer"></div>
+            <div class="timeline-date">November 2025</div>
+            <h4>Club Inauguration</h4>
+            <p>THE BIG O was officially launched with a grand opening event and introductory coding challenge.</p>
+            <span class="timeline-tag">Milestone</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CONNECT SECTION
+       ═══════════════════════════════════════ -->
+  <section class="connect" id="connect">
+    <div class="section-bg-shape shape-5"></div>
+    <div class="container">
+      <div class="connect-content">
+        <div class="section-title reveal">
+          Let's <span>Connect</span>
+          <div class="title-3d-shadow">Let's Connect</div>
+        </div>
+        <div class="section-subtitle reveal">Join our community and stay updated with the latest events and
+          opportunities</div>
+
+        <p class="reveal">Follow us on social media to get the latest updates on contests, workshops, and club
+          activities. We'd love to have you in our community!</p>
+
+        <div class="connect-socials reveal">
+          <a href="https://linkedin.com/company/thebigo" target="_blank"
+            class="connect-social-card linkedin-card tilt-card">
+            <div class="card-3d-layer"></div>
+            <div class="social-icon">
+              <i data-lucide="linkedin"></i>
+            </div>
+            <div class="social-info">
+              <h4>LinkedIn</h4>
+              <span>Follow for updates</span>
+            </div>
+          </a>
+
+          <a href="https://instagram.com/thebigo.club" target="_blank"
+            class="connect-social-card instagram-card tilt-card">
+            <div class="card-3d-layer"></div>
+            <div class="social-icon">
+              <i data-lucide="instagram"></i>
+            </div>
+            <div class="social-info">
+              <h4>Instagram</h4>
+              <span>@thebigo.club</span>
+            </div>
+          </a>
+        </div>
+
+        <div class="connect-cta reveal">
+          <a href="mailto:thebigo@club.com" class="btn-primary btn-3d">
+            <i data-lucide="mail"></i>
+            <span>Get In Touch</span>
+            <div class="btn-shine"></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 THE BIG O. Crafted with <span class="heart">♥</span> by the team.</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+
+</html>
